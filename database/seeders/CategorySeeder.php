@@ -4,6 +4,7 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Facades\DB;
 
 class CategorySeeder extends Seeder
 {
@@ -12,6 +13,37 @@ class CategorySeeder extends Seeder
      */
     public function run(): void
     {
-        //
+        DB::table('categories')->insert([
+            [
+            'category_name'=>'Action',
+            'description'=>'Film dengan adegan adegan penuh aksi dan ketegangan',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            ],
+            [
+            'category_name'=>'Comedy',
+            'description'=>'Film yang bertujuan untuk menghibur dan mengundang tawa',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            ],
+            [
+            'category_name'=>'Drama',
+            'description'=>'Film yang berfokus pada pengembangan karakter',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            ],
+            [
+            'category_name'=>'Sci-Fi',
+            'description'=>'Film dengan adegan adegan penuh aksi dan ketegangan',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            ],
+            [
+            'category_name'=>'Romance',
+            'description'=>'Film dengan adegan adegan penuh aksi dan ketegangan',
+            'created_at'=>now(),
+            'updated_at'=>now(),
+            ],
+        ]);
     }
 }
