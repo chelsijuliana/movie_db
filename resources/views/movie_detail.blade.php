@@ -12,9 +12,15 @@
             <div class="card-body">
                 <h3 class="card-title">{{ $movie->title }}</h3>
                 <p class="card-text">{{ $movie->synopsis }}</p>
+
+                {{-- Actors setelah synopsis, tanpa bold --}}
+                <p class="card-text text-muted">
+                    Actors: {{ $movie->actors ? implode(', ', array_map('trim', explode(',', $movie->actors))) : 'Tidak ada data aktor.' }}
+                </p>
+
                 <p class="text-muted">Year: {{ $movie->year }}</p>
                 
-                {{-- Perbaikan bagian ini --}}
+                {{-- Category --}}
                 <p class="card-text">
                     <small class="text-muted">
                         Category: {{ optional($movie->category)->category_name ?? 'Tidak ada kategori' }}
