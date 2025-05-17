@@ -14,4 +14,11 @@ class Movie extends Model
     {
         return $this->belongsTo(Category::class);
     }
+
+    protected $fillable = 
+    [
+    'title', 'slug', 'synopsis',
+    'category_id', 'year', 'actors',
+    'cover_image',
+    ];
 }

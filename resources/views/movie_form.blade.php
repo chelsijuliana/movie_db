@@ -6,24 +6,24 @@
 <form action="{{ route('movies.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
     <div class="row mb-3">
-        <label for="title" class="col-sm-2 col-form-label">Judul</label>
+        <label for="title" class="col-sm-2 col-form-label">Title</label>
         <div class="col-sm-10">
             <input type="text" name="title" class="form-control" required>
         </div>
     </div>
 
     <div class="row mb-3">
-        <label for="synopsis" class="col-sm-2 col-form-label">Sinopsis</label>
+        <label for="synopsis" class="col-sm-2 col-form-label">Synopsis</label>
         <div class="col-sm-10">
             <textarea name="synopsis" class="form-control" rows="3" required></textarea>
         </div>
     </div>
 
     <div class="row mb-3">
-        <label for="category_id" class="col-sm-2 col-form-label">Kategori</label>
+        <label for="category_id" class="col-sm-2 col-form-label">Category</label>
         <div class="col-sm-10">
             <select name="category_id" class="form-select" required>
-            <option value="">-- Pilih Kategori --</option>
+            <option value="">-- Select Category --</option>
             @foreach ($categories as $category)
                 <option value="{{ $category->id }}">{{ $category->category_name }}</option>
             @endforeach
@@ -32,10 +32,10 @@
     </div>
 
     <div class="row mb-3">
-        <label for="year" class="col-sm-2 col-form-label">Tahun</label>
+        <label for="year" class="col-sm-2 col-form-label">Year</label>
         <div class="col-sm-10">
             <select name="year" class="form-select" required>
-                <option value="">-- Pilih Tahun --</option>
+                <option value="">-- Select Year --</option>
                 @for ($i = date('Y'); $i >= 1900; $i--)
                     <option value="{{ $i }}">{{ $i }}</option>
                 @endfor
@@ -44,7 +44,7 @@
     </div>
 
     <div class="row mb-3">
-        <label for="actors" class="col-sm-2 col-form-label">Aktor</label>
+        <label for="actors" class="col-sm-2 col-form-label">Actors</label>
         <div class="col-sm-10">
             <input type="text" name="actors" class="form-control" required>
         </div>
@@ -59,7 +59,8 @@
 
     <div class="row">
         <div class="offset-sm-2 col-sm-10">
-            <button type="submit" class="btn btn-success">Simpan</button>
+        <button type="submit" class="btn btn-success">Save</button>
+         <button type="reset" class="btn btn-secondary ms-2">Cancel</button>
         </div>
     </div>
 </form>
