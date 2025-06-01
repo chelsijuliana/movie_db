@@ -2,6 +2,12 @@
 
 @section('content')
 <h2 class="mb-4">Form Tambah Movie</h2>
+<div class="mb-3 row">
+  <div>
+    <a href="{{ route('dataMovie') }}" class="btn btn-primary">Data Movie</a>
+
+  </div>
+</div>
 
 <form action="{{ route('movies.store') }}" method="POST" enctype="multipart/form-data">
     @csrf
