@@ -19,6 +19,6 @@ class RoleAdmin
         if (Auth::check() && Auth::user()->role === 'admin'){
             return $next($request);
         }
-        abort(403,  'Akses ditolak, hanya admin yang bole');
+        abort(403,  'Akses ditolak, hanya admin yang boleh');
     }
 }

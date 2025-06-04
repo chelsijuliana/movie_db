@@ -19,7 +19,7 @@ Route::get('/movie/detail/{id}', [MovieController::class, 'detail'])->name('deta
 Route::get('/movies/{id}', [MovieController::class, 'show'])->name('movies.show');
 Route::get('/movie/create', [MovieController::class, 'create'])->name('movies.create')-> middleware('auth');
 Route::post('/movie', [MovieController::class, 'store'])->name('movies.store')-> middleware('auth');
-Route::get('/', [MovieController::class, 'index'])->name('homepage');
+Route::get('/', [MovieController::class, 'index'])->name('home');
 Route::get('/login', [AuthController::class,'formLogin'])->name('login');
 
 Route::post('/login', [AuthController::class,'login']);

@@ -41,10 +41,12 @@
                         </li>
                     @endauth
                 </ul>
-                <form class="d-flex" role="search">
-                    <input class="form-control me-2" type="search" placeholder="Search">
+                <form class="d-flex" role="search" method="GET" action="{{ route('home') }}">
+                    <input class="form-control me-2" type="search" name="search" placeholder="Search movie"
+                        value="{{ request('search') }}">
                     <button class="btn btn-outline-light" type="submit">Search</button>
                 </form>
+
             </div>
         </div>
     </nav>
@@ -54,7 +56,7 @@
     </main>
 
     <footer class="bg-success text-white text-center py-3 mt-4">
-        <small>&copy; {{ date('Y') }} by Ahmad Shiddiq Hasyim NZ</small>
+        <small>&copy; {{ date('Y') }} by Deri Agusman</small>
     </footer>
 </body>
 

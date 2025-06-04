@@ -12,15 +12,22 @@ class MovieController extends Controller
 {
     // Tampilkan daftar movie dengan pagination
     public function index()
-    {
-        $movies = Movie::with('category')->paginate(6);
+{
+    $query = Movie::query()->latest();
 
-        return view('homepage', [
-            'movies'      => $movies,
-            'currentPage' => $movies->currentPage(),
-            'lastPage'    => $movies->lastPage(),
-        ]);
+    if (request('search')) {
+        $query->where('title', 'like', '%' . request('search') . '%');
     }
+
+    // Ini yang benar: $query bukan Movie::
+    $movies = $query->with('category')->paginate(6)->withQueryString();
+
+    return view('homepage', [
+        'movies' => $movies,
+        'currentPage' => $movies->currentPage(),
+        'lastPage' => $movies->lastPage(),
+    ]);
+}
 
     // Form untuk buat movie baru
     public function create()

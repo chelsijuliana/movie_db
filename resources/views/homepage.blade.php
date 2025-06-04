@@ -3,11 +3,16 @@
 @section('content')
 <h2 class="mb-4">Popular Movie</h2>
 
+@if(request('search'))
+    <p>Hasil pencarian untuk: <strong>"{{ request('search') }}"</strong></p>
+@endif
+
 <div class="row row-cols-1 row-cols-md-2 g-4">
-    @foreach ($movies as $movie)
+    @forelse ($movies as $movie)
         <div class="col">
             <div class="card h-100 d-flex flex-row">
-                <img src="{{ $movie->cover_image }}" class="img-fluid" alt="{{ $movie->title }}" style="max-width: 180px; object-fit: cover;">
+                <img src="{{ $movie->cover_image }}" class="img-fluid" alt="{{ $movie->title }}"
+                    style="max-width: 180px; object-fit: cover;">
                 <div class="card-body">
                     <h5 class="card-title">{{ $movie->title }}</h5>
                     <p class="card-text">{{ Str::limit($movie->synopsis, 150) }}</p>
@@ -16,7 +21,9 @@
                 </div>
             </div>
         </div>
-    @endforeach
+    @empty
+        <p class="text-muted">Film tidak ditemukan.</p>
+    @endforelse
 </div>
 
 <div class="d-flex justify-content-end mt-4">
